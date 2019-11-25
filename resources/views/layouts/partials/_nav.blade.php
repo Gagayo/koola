@@ -12,8 +12,8 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class=""><a href="{{ route('home') }}">Home</a></li>
-        <li class=""><a href="{{ route('about') }}">About</a></li>
+        <li class="{{ set_active_route('home') }}"><a href="{{ route('home') }}">Home</a></li>
+        <li class="{{ set_active_route('about') }}"><a href="{{ route('about') }}">About</a></li>
         <li><a href="#activities">Activities</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -24,7 +24,7 @@
             <li><a href="#">koola.com</a></li>
           </ul>
         </li>
-         <li class=""><a href="{{ route('contact.create') }}">Contact</a></li>
+         <li class="{{ set_active_route('contact.create') }}"><a href="{{ route('contact.create') }}">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
             <li><a href="#register">Register</a></li>
