@@ -16,9 +16,4 @@ class PagesController extends Controller
     	return view('pages.about');
     }
 
-    public function create(){
-    	return view('pages.contact');
-    }
-
-
 }

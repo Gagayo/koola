@@ -17,4 +17,6 @@ Route::get('/',[
 
 
 Route::get('/about',"PagesController@about")->name("about");
-Route::get('/contact',"PagesController@create")->name("contact.create");
+
+Route::get('/contact',"ContactsController@create")->name("contact.create");
+Route::post('/contact',"ContactsController@store")->name("contact.store");

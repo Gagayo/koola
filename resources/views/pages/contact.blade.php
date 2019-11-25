@@ -9,19 +9,22 @@
 				<h1>Get In Touch</h1>
 				<p>if you having trouble with this service please <a href="#">ask for help</a></p>
 			</div>
-			<form action="#" method="POST">
+			<form action="{{ route('contact.store') }}" method="POST" novalidate="">
 			  {{ csrf_field() }}
-			  <div class="form-group">
+			  <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
 			    <label for="name" class="control-label">Name</label>
 			    <input type="text" class="form-control" name="name" id="name" placeholder="Name" required="required">
+			    {!! $errors->first('name', '<span>:message</span>') !!}
 			  </div>
-			  <div class="form-group ">
+			  <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
 			    <label for="email" class="control-label">Email</label>
 			    <input type="email" class="form-control" name="email" id="email" placeholder="Email" required="required">
+			    {!! $errors->first('email', '<span>:message</span>') !!}
 			  </div>
-			  <div class="form-group">
+			  <div class="form-group {{ $errors->has('message') ? 'has-error' : '' }}">
 			  	<label for="message" class="control-label">Message</label>
 			    <textarea name="message" class="form-control" placeholder="Message" cols="10" rows="10" required="required"></textarea>
+			    {!! $errors->first('message', '<span>:message</span>') !!}
 			  </div>
 			  <button type="submit" class="btn btn-primary btn-block">Submit Enquiry &raquo;</button>
 			</form>	
