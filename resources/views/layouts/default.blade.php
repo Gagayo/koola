@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8"/>
 
-	<title>Default Title</title>
+	<title>{{ page_title($title ? $title: '') }}</title>
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">

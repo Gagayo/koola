@@ -1,5 +1,5 @@
 
-@extends('layouts.default')
+@extends('layouts.default', ['title'=>'About'])
 
 @section('content')
 	<div class="container">

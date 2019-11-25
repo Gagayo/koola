@@ -1,5 +1,5 @@
 
-@extends('layouts.default')
+@extends('layouts.default', ['title'=>'Home'])
 
 @section('content')
 	<div class="container text-center">
