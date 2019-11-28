@@ -11,19 +11,19 @@
 			</div>
 			<form action="{{ route('contact.store') }}" method="POST" novalidate="">
 			  {{ csrf_field() }}
-			  <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
+			  <div class="form-group @error('name') @enderror">
 			    <label for="name" class="control-label">Name</label>
-			    <input type="text" class="form-control" name="name" id="name" placeholder="Name" required="required">
+			    <input type="text" class="form-control" name="name" id="name" placeholder="Name" required="required" value="{{ old('name')}}">
 			    {!! $errors->first('name', '<span>:message</span>') !!}
 			  </div>
 			  <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
 			    <label for="email" class="control-label">Email</label>
-			    <input type="email" class="form-control" name="email" id="email" placeholder="Email" required="required">
+			    <input type="email" class="form-control" name="email" id="email" placeholder="Email" required="required" value="{{ old('email')}}">
 			    {!! $errors->first('email', '<span>:message</span>') !!}
 			  </div>
 			  <div class="form-group {{ $errors->has('message') ? 'has-error' : '' }}">
 			  	<label for="message" class="control-label">Message</label>
-			    <textarea name="message" class="form-control" placeholder="Message" cols="10" rows="10" required="required"></textarea>
+			    <textarea name="message" class="form-control" placeholder="Message" cols="10" rows="10" required="required">{{ old('message')}}</textarea>
 			    {!! $errors->first('message', '<span>:message</span>') !!}
 			  </div>
 			  <button type="submit" class="btn btn-primary btn-block">Submit Enquiry &raquo;</button>
