@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ContactFormRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMessageCreated;
+use App\Models\Message;
 
 class ContactsController extends Controller
 
@@ -18,13 +19,14 @@ class ContactsController extends Controller
     
     public function store(ContactFormRequest $request){
 
+    	$message = Message::create($request->only('name','email','message'));
     	
-
-    	$mailable = new ContactMessageCreated($request->name,$request->email,$request->message);
-
-    	Mail::to("admin@koola.com")->send($mailable);
+    	$mailable = new ContactMessageCreated($message); 
+    	Mail::to(config('koola.admin_support_email'))->send($mailable);
     	
- 		dump('Done') ;  	
+ 		flashy("Nous vous repondrons dans les plus brefs delais");
+
+ 		return redirect()->route('home');
     }
 
 }

@@ -7,7 +7,7 @@
 		<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
 			<div class="text-center">
 				<h1>Get In Touch</h1>
-				<p>if you having trouble with this service please <a href="#">ask for help</a></p>
+				<p class="text-muted">if you having trouble with this service please <a href="mailto:{{ config('koola.admin_support_email') }}">ask for help</a></p>
 			</div>
 			<form action="{{ route('contact.store') }}" method="POST" novalidate="">
 			  {{ csrf_field() }}
