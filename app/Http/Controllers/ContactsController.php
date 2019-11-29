@@ -19,10 +19,15 @@ class ContactsController extends Controller
     
     public function store(ContactFormRequest $request){
 
+
+    	/*dump($request->only('name','email','message'));
+    	die();
+*/
+
     	$message = Message::create($request->only('name','email','message'));
     	
-    	$mailable = new ContactMessageCreated($message); 
-    	Mail::to(config('koola.admin_support_email'))->send($mailable);
+    	Mail::to(config('koola.admin_support_email'))
+    				->send(new ContactMessageCreated($message));
     	
  		flashy("Nous vous repondrons dans les plus brefs delais");
 
